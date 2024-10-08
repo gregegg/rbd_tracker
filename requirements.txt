@@ -1,13 +1,18 @@
+# basic tools
 python<3.13
 jupyterlab
 dvc
 
+# for interfacing with cloud server
 requests
 python-dotenv
 
+# for analysis
 matplotlib
 numpy
 scipy
 pandas
+pyarrow
 hvplot
 xarray
+jupyter_bokeh
