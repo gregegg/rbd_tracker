@@ -1,0 +1,11 @@
+
+
+
+stages:
+  run_data:
+    cmd: python rbd_tracker/data.py
+    deps:
+      - rbd_tracker/data.py
+      - .env
+    outs:
+      - data/interim/sleep_data.json

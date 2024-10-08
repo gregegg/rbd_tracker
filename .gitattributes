@@ -1,0 +1,4 @@
+#  this file enables the use of git filters to clean up the output of Jupyter notebooks
+#  onetime activity:  run the following in a terminal:  git config filter.strip-notebook-output.clean "jupyter nbconvert --ClearOutputPreprocessor.enabled=True --to=notebook --stdin --stdout --log-level=ERROR" 
+
+*.ipynb filter=strip-notebook-output 
