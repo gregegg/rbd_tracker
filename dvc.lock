@@ -1,7 +1,7 @@
 schema: '2.0'
 stages:
   run_data:
-    cmd: python rbd_tracker/data.py
+    cmd: C:\Users\grege\miniconda3\envs\rbd_dev\python.exe rbd_tracker/data.py
     deps:
     - path: .env
       hash: md5

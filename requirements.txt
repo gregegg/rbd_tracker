@@ -1,0 +1,12 @@
+python<3.13
+dvc
+
+requests
+python-dotenv
+
+matplotlib
+numpy
+scipy
+pandas
+hvplot
+xarray

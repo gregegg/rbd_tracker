@@ -1,0 +1,6 @@
+{
+    "terminal.integrated.env.windows": {
+        "PYTHONPATH": "C:\\Users\\grege\\miniconda3\\envs\\rbd_dev\\python.exe"
+    },
+    "python.terminal.activateEnvironment": true,
+}
