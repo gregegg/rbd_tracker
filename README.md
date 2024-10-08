@@ -2,7 +2,11 @@
 Explore raw data from [Oura Ring](https://ouraring.com/) for potential use in tracking RBD events.
 
 ## Initial Scope
-Extract count of large movements during periods of sleep classifed as "REM".
+- Identify large movements during periods of sleep classifed as "REM".
+
+![alt text](data/final/image.png)
+
+- Validate against video recordings
 
 Unverified Assumption: 
 - Sleep stage classification isn't thrown off by RBD events
