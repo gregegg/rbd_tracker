@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  run_data:
+    cmd: python rbd_tracker/data.py
+    deps:
+    - path: .env
+      hash: md5
+      md5: 0196f7e7a8f1a30eb1e77e90a21c9671
+      size: 40
+    - path: rbd_tracker/data.py
+      hash: md5
+      md5: 7e3068195237e2b8ed80c5db16506221
+      size: 1049
+    outs:
+    - path: data/interim/sleep_data.json
+      hash: md5
+      md5: 4cd21144072699a3da29d0a98829a5d6
+      size: 168128
