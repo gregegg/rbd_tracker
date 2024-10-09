@@ -4,7 +4,7 @@ Explore raw data from [Oura Ring](https://ouraring.com/) for potential use in tr
 ## Initial Scope
 - Identify large movements during periods of sleep classifed as "REM".
 
-![alt text](data/final/image.png)
+![plot](./data/raw/dummy_rbd_extract.png)
 
 - Validate against video recordings
 
