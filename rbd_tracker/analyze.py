@@ -1,6 +1,8 @@
 import json
 import pandas as pd
 import numpy as np
+import argparse
+
 from pathlib import Path 
 
 from holoviews import opts
@@ -14,6 +16,8 @@ def main(
     # load the sleep data into a pandas dataframe
     with open(sleep_data_json) as f:
         sleep_data = json.load(f)
+
+    print(f"opened {sleep_data_json} for processing")
 
     df_sleep = pd.DataFrame(sleep_data)
 
@@ -33,7 +37,7 @@ def main(
     print(df_collated_sleeps.loc[(df_collated_sleeps['movement'] >= 3) & (df_collated_sleeps['sleep_phase'] == 3)][['movement', 'sleep_phase']])
 
     df_collated_sleeps.to_parquet(out_file)
-
+    print(f"saved collated sleep data to {out_file}")
 
 def _collate_sleep(row):
     
@@ -98,4 +102,12 @@ def plot_collated_sleep(df):
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description='Process sleep data JSON file.')
+    parser.add_argument('-i', '--sleep_data_json', type=str, help='Path to the sleep data JSON file', default='data/raw/dummy_data.json')
+    parser.add_argument('-o', '--out_file', type=str, help='Path to the processed parquet file', default='data/interim/dummy_data.parquet')
+    args = parser.parse_args()
+
+    main(
+        sleep_data_json=Path(args.sleep_data_json), 
+        out_file=Path(args.out_file)
+    )

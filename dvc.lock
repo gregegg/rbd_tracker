@@ -16,3 +16,44 @@ stages:
       hash: md5
       md5: 4cd21144072699a3da29d0a98829a5d6
       size: 168128
+  download_data:
+    cmd: C:\Users\grege\miniconda3\envs\rbd_dev\python.exe rbd_tracker/data.py > data/interim/data.log
+    deps:
+    - path: .env
+      hash: md5
+      md5: 0196f7e7a8f1a30eb1e77e90a21c9671
+      size: 40
+    - path: rbd_tracker/data.py
+      hash: md5
+      md5: 72885bac8f6b229d0d7d977aff79971e
+      size: 1096
+    outs:
+    - path: data/interim/data.log
+      hash: md5
+      md5: 110449b5f03b708aa792a0138765e8cb
+      size: 129
+    - path: data/interim/sleep_data.json
+      hash: md5
+      md5: ea2b8dd2c27f4cedaf2317867b478e0e
+      size: 174080
+  analyze_data:
+    cmd: C:\Users\grege\miniconda3\envs\rbd_dev\python.exe rbd_tracker/analyze.py
+      -i data/interim/sleep_data.json -o data/interim/sleep_data.parquet > data/interim/analyze.log
+    deps:
+    - path: data/interim/sleep_data.json
+      hash: md5
+      md5: ea2b8dd2c27f4cedaf2317867b478e0e
+      size: 174080
+    - path: rbd_tracker/analyze.py
+      hash: md5
+      md5: 37614bfcf8e5a3a07878a67cb23c8bcf
+      size: 4233
+    outs:
+    - path: data/interim/analyze.log
+      hash: md5
+      md5: 54e45dfd13205f24457ce1db7290eba3
+      size: 2408
+    - path: data/interim/sleep_data.parquet
+      hash: md5
+      md5: 9c60b5fea595bfe06506e3b8b7aec528
+      size: 169458

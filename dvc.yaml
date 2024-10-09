@@ -4,9 +4,19 @@ vars:
 
 stages:
   download_data:
-    cmd: ${python} rbd_tracker/data.py
+    cmd: ${python} rbd_tracker/data.py > data/interim/data.log
     deps:
       - rbd_tracker/data.py
       - .env
     outs:
       - data/interim/sleep_data.json
+      - data/interim/data.log
+
+  analyze_data:
+    cmd: ${python} rbd_tracker/analyze.py -i data/interim/sleep_data.json -o data/interim/sleep_data.parquet > data/interim/analyze.log
+    deps:
+      - data/interim/sleep_data.json
+      - rbd_tracker/analyze.py
+    outs:
+      - data/interim/sleep_data.parquet
+      - data/interim/analyze.log
